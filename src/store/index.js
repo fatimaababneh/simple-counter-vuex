@@ -13,6 +13,9 @@ export default createStore({
     increase(state, randomNumber) {
       state.count += randomNumber;
     },
+    setColorCode(state, newValue){
+      state.colorCode = newValue;
+    }
   },
   actions: {
     increase({ commit }) {
@@ -31,6 +34,7 @@ export default createStore({
         commit("decrease", response.data);
       });
     }
+
   },
   getters:{
     squarecounter(state){

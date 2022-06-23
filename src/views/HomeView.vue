@@ -13,7 +13,7 @@
       <button @click="$store.dispatch('decrease')">-</button>
       <button @click="$store.dispatch('increase')">+</button>
       </div>
-      <input v-model="$store.state.colorCode"
+      <input v-model="colorCode"
       placeholder="enter your color"
       type="text"
       />
@@ -23,13 +23,15 @@
 <script>
 export default {
   name: 'HomeView',
-  data(){
-    return{
-      
+  computed:{
+   colorCode:{
+    get(){
+      return this.$store.state.colorCode
+    },
+    set(newValue){
+      this.$store.commit('setColorCode', newValue)
     }
-  },
-  methods:{
-   
+   }
   }
 }
 </script>
